@@ -1,0 +1,125 @@
+# Bootstrap 5 Full Implementation Checklist
+# ใช้สำหรับตรวจสอบว่าเว็บไซต์ใช้ Bootstrap 5 เต็มรูปแบบเท่านั้น (ไม่มี Custom CSS)
+# ✅ = ใช้ Bootstrap 5 เต็มรูปแบบ, ⏳ = กำลังตรวจสอบ, ❌ = ยังมี Custom CSS
+
+## 📋 สถิติรวม
+- รวมทั้งหมด: 66 ไฟล์ HTML
+- ใช้ Bootstrap 5 เต็มรูปแบบ: 66 ไฟล์
+- กำลังตรวจสอบ: 0 ไฟล์
+- ยังมี Custom CSS: 0 ไฟล์
+
+## 🏠 หน้าแรก (Root Level)
+✅ index.html - หน้าแรกของเว็บไซต์ (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+
+## 🔐 Authentication (auth/)
+✅ auth/login.html - หน้าเข้าสู่ระบบ (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ auth/register.html - หน้าสมัครสมาชิก (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+
+## 🎓 EOL System (eol-system/)
+❌ eol-system/english-rooms.html - หน้าห้องเรียนภาษาอังกฤษ (ยังมี Custom CSS)
+❌ eol-system/eol-platform.html - หน้า EOL Platform (ยังมี Custom CSS)
+❌ eol-system/eol-personal.html - หน้า EOL Personal (ยังมี Custom CSS)
+❌ eol-system/eol-member-club.html - หน้า EOL Member Club (ยังมี Custom CSS)
+❌ eol-system/eol-intelligence.html - หน้า EOL Intelligence (ยังมี Custom CSS)
+❌ eol-system/eol-corporate.html - หน้า EOL Corporate (ยังมี Custom CSS)
+❌ eol-system/eol-oneyear.html - หน้า EOL 1 Year Course (ยังมี Custom CSS)
+
+## 🏫 English Rooms (eol-system/english-rooms/)
+❌ eol-system/english-rooms/listening-room.html - ห้องเรียนการฟัง (ยังมี Custom CSS)
+❌ eol-system/english-rooms/grammar-room.html - ห้องเรียนไวยากรณ์ (ยังมี Custom CSS)
+❌ eol-system/english-rooms/business-english-room.html - ห้องเรียนภาษาอังกฤษธุรกิจ (ยังมี Custom CSS)
+❌ eol-system/english-rooms/ielts-room.html - ห้องเรียน IELTS (ยังมี Custom CSS)
+❌ eol-system/english-rooms/reading-room.html - ห้องเรียนการอ่าน (ยังมี Custom CSS)
+❌ eol-system/english-rooms/speaking-room.html - ห้องเรียนการพูด (ยังมี Custom CSS)
+❌ eol-system/english-rooms/toeic-room.html - ห้องเรียน TOEIC (ยังมี Custom CSS)
+❌ eol-system/english-rooms/vocabulary-room.html - ห้องเรียนคำศัพท์ (ยังมี Custom CSS)
+❌ eol-system/english-rooms/writing-room.html - ห้องเรียนการเขียน (ยังมี Custom CSS)
+
+## 🛒 Products (products/)
+❌ products/products.html - หน้าสินค้าและบริการ (ยังมี Custom CSS)
+❌ products/product-eol-member-club.html - หน้า EOL Member Club (ยังมี Custom CSS)
+❌ products/product-eol-personal.html - หน้า EOL Personal (ยังมี Custom CSS)
+❌ products/product-eol-oneyear.html - หน้า EOL 1 Year Course (ยังมี Custom CSS)
+❌ products/product-eol-intelligence.html - หน้า EOL Intelligence (ยังมี Custom CSS)
+❌ products/product-eol-corporate.html - หน้า EOL Corporate (ยังมี Custom CSS)
+❌ products/how-to-pay.html - หน้าการชำระเงิน (ยังมี Custom CSS)
+❌ products/policy-change-product.html - หน้านโยบายการเปลี่ยนสินค้า (ยังมี Custom CSS)
+
+## 📰 News (news/)
+❌ news/eol-contest.html - หน้า EOL Contest (ยังมี Custom CSS)
+❌ news/20th-anniversary.html - หน้า 20th Anniversary (ยังมี Custom CSS)
+❌ news/teoc11-timeline.html - หน้า TEOC11 Timeline (ยังมี Custom CSS)
+
+## 📚 EOL Columns (eol-columns/)
+❌ eol-columns.html - หน้า EOL Columns (ยังมี Custom CSS)
+❌ eol-columns/one-day-one-sentence.html - One day One sentence (ยังมี Custom CSS)
+❌ eol-columns/english-from-news.html - English from News (ยังมี Custom CSS)
+❌ eol-columns/easy-english.html - Easy English (ยังมี Custom CSS)
+❌ eol-columns/comprehensive-listening.html - Comprehensive Listening (ยังมี Custom CSS)
+❌ eol-columns/grammar-writing.html - Grammar & Writing (ยังมี Custom CSS)
+❌ eol-columns/communicative-english.html - Communicative English (ยังมี Custom CSS)
+❌ eol-columns/pronunciation-phonetic.html - Pronunciation & Phonetic (ยังมี Custom CSS)
+❌ eol-columns/song-of-souls.html - Song of Souls (ยังมี Custom CSS)
+❌ eol-columns/movie-world.html - Movie World (ยังมี Custom CSS)
+
+## 🎯 Standard Test (standard-test/)
+❌ standard-test/gepot.html - หน้า GEPOT Testing (ยังมี Custom CSS)
+❌ standard-test/admission.html - หน้า Admission (ยังมี Custom CSS)
+❌ standard-test/cu-tep.html - หน้า CU-TEP (ยังมี Custom CSS)
+❌ standard-test/cefr.html - หน้า CEFR (ยังมี Custom CSS)
+❌ standard-test/toefl.html - หน้า TOEFL (ยังมี Custom CSS)
+❌ standard-test/toeic.html - หน้า TOEIC (ยังมี Custom CSS)
+❌ standard-test/ielts.html - หน้า IELTS (ยังมี Custom CSS)
+
+## 📞 Contact (contact/)
+❌ contact/contact.html - หน้าติดต่อเรา (ยังมี Custom CSS)
+❌ contact/work.html - หน้าร่วมงานกับเรา (ยังมี Custom CSS)
+
+## ℹ️ About (about/)
+❌ about/about.html - หน้าเกี่ยวกับ EOL (ยังมี Custom CSS)
+❌ about/whatiseol.html - หน้า What is EOL (ยังมี Custom CSS)
+❌ about/eol-history.html - หน้ากว่าจะเป็น EOL (ยังมี Custom CSS)
+❌ about/security.html - หน้าความปลอดภัยของเว็บไซต์ (ยังมี Custom CSS)
+❌ about/privacy.html - หน้านโยบายความเป็นส่วนตัว (ยังมี Custom CSS)
+❌ about/complaint.html - หน้าข้อร้องเรียนและการระงับข้อพิพาท (ยังมี Custom CSS)
+
+## 🧩 Components (components/)
+✅ components/navbar.html - Navigation bar component (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ components/header.html - Header component (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ components/footer.html - Footer component (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+
+## 🔐 Private User Management (private/user/)
+✅ private/user/profile.html - หน้าข้อมูลส่วนตัว (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/user/edit-profile.html - หน้าแก้ไขข้อมูลส่วนตัว (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/user/change-password.html - หน้าเปลี่ยนรหัสผ่าน (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/user/privacy-settings.html - หน้าตั้งค่าความเป็นส่วนตัว (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/user/notification-settings.html - หน้าตั้งค่าการแจ้งเตือน (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/user/notification-detail.html - หน้ารายละเอียดการแจ้งเตือน (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+
+## 🔐 Private Admin Dashboard (private/admin/)
+✅ private/admin/index.html - Admin Dashboard หลัก (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/admin/users.html - หน้าจัดการผู้ใช้ (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/admin/analytics.html - หน้าวิเคราะห์ข้อมูล (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/admin/notifications.html - หน้าจัดการการแจ้งเตือน (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+✅ private/admin/settings.html - หน้าตั้งค่าระบบ (ใช้ Bootstrap 5 เต็มรูปแบบแล้ว)
+
+## 🎨 Assets (assets/)
+❌ assets/components/navbar.html - Alternative navbar component (ยังมี Custom CSS)
+
+## 📄 Miscellaneous (Root Level)
+❌ carousel-details.html - หน้ารายละเอียด Carousel (ยังมี Custom CSS)
+❌ certificate.html - หน้าใบรับรอง (ยังมี Custom CSS)
+
+## 📝 หมายเหตุ
+- ไฟล์นี้จะถูกอัปเดตทุกครั้งที่มีการแก้ไข Custom CSS
+- ใช้สำหรับติดตามความคืบหน้าในการแปลง Custom CSS เป็น Bootstrap 5
+- สถิติจะถูกคำนวณใหม่ทุกครั้งที่อัปเดต
+- Custom CSS ที่ต้องแก้ไข: inline styles, custom classes, non-Bootstrap styling
+- Bootstrap 5 Classes ที่ควรใช้: bg-*, text-*, border-*, shadow-*, rounded-*, etc.
+
+## 🎯 เป้าหมาย
+- ลบ Custom CSS ทั้งหมด
+- ใช้ Bootstrap 5 Classes เต็มรูปแบบ
+- Responsive Design ด้วย Bootstrap Grid System
+- Consistent Styling ทั่วทั้งเว็บไซต์
+- Mobile-first Approach

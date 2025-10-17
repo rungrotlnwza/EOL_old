@@ -1,0 +1,355 @@
+# 📁 EOL PHP Project Structure
+
+## 🔄 กระบวนการตรวจสอบและ Copy ไฟล์
+
+**ขั้นตอนการทำงาน (10 ขั้นตอน):**
+
+1. **รอรับ path ไฟล์** - รับชื่อไฟล์ PHP ที่ต้องการตรวจสอบ (เช่น `fn_office.php`)
+
+2. **ตรวจสอบไฟล์ที่เกี่ยวข้อง** - วิเคราะห์ไฟล์เพื่อหา:
+   
+   **PHP Code:**
+   - `include()` / `require()` → ไฟล์ PHP ที่ถูกเรียกใช้
+   - `header("Location: ")` → PHP redirect
+   
+   **HTML:**
+   - `<img src="">` → ไฟล์รูปภาพ
+   - `<a href="">` → ลิงก์ไปยังไฟล์ .php อื่นๆ
+   - `<form action="">` → Form submission
+   - `<link href="">` → CSS files
+   - `<script src="">` → JavaScript files
+   - `<iframe src="">` → Embedded pages
+   - `<audio src="">` / `<video src="">` → Media files (ของระบบ)
+   
+   **CSS:**
+   - `background-image: url()` → รูพื้นหลังใน CSS/inline style
+   
+   **JavaScript:**
+   - `fetch()`, `$.ajax()`, `XMLHttpRequest` → AJAX calls
+   - `window.location`, `location.href` → JS redirect
+   
+   **Special:**
+   - `www.engtest.net` URL → ถือเป็น internal link (ต้องดึง path มาเช็คด้วย)
+   - `<meta http-equiv="refresh">` → HTML auto redirect
+
+3. **ตรวจสอบไฟล์ใน old/** - ตรวจสอบว่าไฟล์ที่เกี่ยวข้องมีอยู่ใน `old/` หรือไม่
+
+4. **ตรวจสอบไฟล์ใน php/** - เช็คว่าไฟล์ที่เกี่ยวข้องมีใน `php/` แล้วหรือยัง
+   - ถ้ามีแล้ว → ข้าม
+   - ถ้ายังไม่มี → เพิ่มเข้า .bat
+
+5. **สร้างไฟล์ .bat** - สร้าง `copy_[ชื่อไฟล์]_files.bat` ที่มี:
+   - คำสั่ง `mkdir` สร้าง folders
+   - คำสั่ง `copy` คัดลอกเฉพาะ code และ assets
+   - **ไม่รวม**: user data, database data, logs, cache, temp files
+   - ใช้ `exit` แทน `pause`
+
+6. **รันไฟล์ .bat** - Execute batch script เพื่อ copy ไฟล์
+
+7. **อัพเดท eol.txt (ไฟล์หลัก)** - เพิ่ม ✅ ให้กับไฟล์หลักเท่านั้น (ไฟล์ที่ชื่อตรงกับ .bat)
+   - ไฟล์ที่เกี่ยวข้อง (dependencies) ไม่ต้องใส่ ✅
+   - เพิ่มไฟล์ใหม่ลงใน tree structure
+
+8. **อัพเดท eol.txt (รายการสรุป)** - อัพเดท 2 ส่วน:
+   - เพิ่มไฟล์หลักใน "ไฟล์ที่ตรวจสอบแล้ว"
+   - เพิ่มรายการไฟล์ทั้งหมดที่ copy ใน "ไฟล์ที่ดาวน์โหลดแล้ว" (ระบุ path และจำนวนอย่างชัดเจน ไม่ใช้ ... หรือย่อ)
+
+9. **สร้างคำสั่ง Git** - ให้คำสั่งสำหรับ copy:
+   ```bash
+   git add .
+   git commit -m "ไฟล์ที่เกี่ยวข้องกับ [ชื่อไฟล์]"
+   ```
+
+10. **สรุปและรอไฟล์ถัดไป** - แสดงสรุปการทำงานและรอรับไฟล์ถัดไป
+
+---
+
+**หมายเหตุสำคัญ:**
+- ✅ = ไฟล์ที่ตรวจสอบแล้ว (ตรงกับชื่อ .bat เท่านั้น)
+- ไฟล์ library/helper (เช่น `paging.inc.php`, `connection.php`) ไม่ต้องสร้าง .bat
+- `www.engtest.net` = internal link ต้องนับเป็นไฟล์ที่เกี่ยวข้อง
+
+**สิ่งที่ต้อง Copy (SYSTEM):**
+- ✅ Code: PHP, CSS, JS
+- ✅ Assets: รูปภาพ UI/Design (logos, icons, buttons, backgrounds)
+- ✅ Media: เสียง/วิดีโอของระบบ (ถ้ามี)
+- ✅ การเชื่อมโยง: include, redirect, form, link, ajax
+
+**สิ่งที่ไม่ต้อง Copy (USER DATA):**
+- ❌ รูปภาพที่ user อัพโหลด (`user_images/`, `upload/`)
+- ❌ บทเรียนที่ user สร้าง
+- ❌ ไฟล์เสียง/วิดีโอที่ user upload
+- ❌ Database data
+- ❌ Logs, Cache, Temp files
+
+---
+
+```
+php/
+├── 1yc/
+│   ├── 1yearcontent.php ✅
+│   ├── 1yearlist.php ✅
+│   ├── edit1year.php ✅
+│   ├── edituserpass.php ✅
+│   └── fn_1yc.php ✅
+├── 2010/
+│   ├── member_images/
+│   │   ├── icon_user_01.jpg
+│   │   └── icon_user_02.jpg
+│   ├── temp_images/
+│   │   ├── temp/
+│   │   │   ├── button/
+│   │   │   └── icon/
+│   │   └── icon_new.gif
+│   ├── export_full_report_gepot_to_excel.php ✅
+│   ├── export_report_gepot_to_pdf.php ✅
+│   └── export_summary_report_gepot_to_excel.php ✅
+├── backoffice/
+│   ├── fn_admin.php ✅
+│   ├── fn_manage_eolcontest.php ✅
+│   ├── fn_office.php ✅
+│   ├── mainoffice.php ✅
+│   └── upload.php ✅
+├── bootstrap/
+│   ├── fontawesome/
+│   ├── LateralOnScrollSliding/
+│   │   ├── css/
+│   │   │   ├── demo.css
+│   │   │   ├── reset.css
+│   │   │   └── style.css
+│   │   └── js/
+│   │       ├── jquery-1.7.1.min.js
+│   │       ├── jquery.easing.1.3.js
+│   │       └── modernizr.custom.js
+│   ├── toggle-switch/
+│   ├── css/
+│   │   ├── 1yearcontent.css
+│   │   ├── backoffice.css
+│   │   ├── bootstrap-datetimepicker.css
+│   │   ├── bootstrap.min.css
+│   │   ├── create_exam_customize.css
+│   │   ├── edit_exam_customize.css
+│   │   ├── eoltest.css
+│   │   ├── mainpage.css
+│   │   ├── pagination.css
+│   │   └── tabbar.css
+│   └── js/
+│       ├── bootstrap-datetimepicker.js
+│       ├── bootstrap.min.js
+│       └── jquery.min.js
+├── calendar/
+│   ├── epoch_classes.js
+│   └── epoch_styles.css
+├── config/
+│   ├── connection.php ✅
+│   └── format_time.php ✅
+├── eol_system/
+│   ├── corporate.php ✅
+│   ├── eol_member_club.php ✅
+│   ├── eol_platform.php ✅
+│   ├── Intelligence.php ✅
+│   ├── oneyear.php ✅
+│   └── personal.php ✅
+├── event/
+│   ├── 1yearscourse/
+│   │   └── 92691184.png
+│   ├── 2025/
+│   │   ├── CER.png
+│   │   ├── TEOC11 BANNERz.png
+│   │   └── timeline.png
+│   ├── corporate-platform-2023/
+│   │   └── poster-corporate-platform-2023.png
+│   ├── EOL 19th/
+│   │   └── c2.png
+│   ├── EOL Corporate Package 2022/
+│   │   ├── corporate-banner.png
+│   │   └── poster-corporate.png
+│   ├── EOL Corporate Package 2023/
+│   │   ├── Banner-Corporate-2023.png
+│   │   ├── Poster-Corporate-2023.png
+│   │   └── poster-corporate-platform-2023.png
+│   ├── EOL-Member-Club-2023/
+│   │   └── member2024.png
+│   ├── GPS_Test_2024/
+│   │   └── Banner-GPS.png
+│   ├── new banner/
+│   │   ├── 76820.jpg
+│   │   └── 76821.jpg
+│   └── QR Payment/
+│       └── promptpay.png
+├── forum/
+│   ├── detail.php ✅
+│   ├── e-en.php ✅
+│   ├── other.php ✅
+│   └── paging.inc.php ✅
+├── image2/
+│   └── what is eol.png
+├── img/
+│   └── shop/
+│       └── tab-menu-policy/
+│           ├── over-policy-change.jpg
+│           ├── over-warranty.jpg
+│           ├── policy-change.jpg
+│           └── warranty.jpg
+├── images/
+│   ├── icon/
+│   │   ├── bin.png
+│   │   ├── edit.png
+│   │   └── report.png
+│   ├── image/
+│   │   └── sponser/
+│   │       ├── ads_zone.jpg
+│   │       └── ads_zone_thumbnail.jpg
+│   ├── image2/
+│   │   ├── about web/
+│   │   │   ├── menu_icon/
+│   │   │   │   ├── 1year-course-new.jpg
+│   │   │   │   ├── coporate-new.jpg
+│   │   │   │   ├── eol-platform.jpg
+│   │   │   │   ├── EOL-System-Club.jpg
+│   │   │   │   ├── EOL-System-Club-over.jpg
+│   │   │   │   ├── Intelligence-package-new.jpg
+│   │   │   │   ├── over-1year-course.jpg
+│   │   │   │   ├── over-coporate-new.jpg
+│   │   │   │   ├── over-eol-platform.jpg
+│   │   │   │   ├── over-Intelligence-package-new.jpg
+│   │   │   │   ├── over-personal-new.jpg
+│   │   │   │   └── personal-new.jpg
+│   │   │   └── 3keys-success.jpg
+│   │   ├── eol system/
+│   │   │   ├── button/
+│   │   │   │   └── logout-06.png
+│   │   │   ├── bg-create-test.png
+│   │   │   ├── delete.png
+│   │   │   ├── eol-corporate-4.jpg
+│   │   │   ├── eol-corporate-5.jpg
+│   │   │   ├── eol-corporate-6.jpg
+│   │   │   ├── eol-corporate-7.jpg
+│   │   │   ├── eol-corporate-8.jpg
+│   │   │   ├── eol-corporate-9.jpg
+│   │   │   ├── eol-corporate.jpg
+│   │   │   ├── eol-personal.jpg
+│   │   │   ├── head-box-02.png
+│   │   │   ├── loading2.gif
+│   │   │   └── plus.png
+│   │   ├── 1year/
+│   │   │   ├── button/
+│   │   │   │   ├── button EnterLessons.png
+│   │   │   │   ├── button history.png
+│   │   │   │   ├── button webboard.png
+│   │   │   │   ├── edit-pass.png
+│   │   │   │   ├── edit.png
+│   │   │   │   ├── home-08.png
+│   │   │   │   ├── log-out.png
+│   │   │   │   └── management.png
+│   │   │   ├── 1 year icon.ico
+│   │   │   ├── bg-01.jpg
+│   │   │   ├── font(lessons).png
+│   │   │   ├── font(Q&A).png
+│   │   │   ├── font(record).png
+│   │   │   ├── lessons(bg)-01.jpg
+│   │   │   ├── status-02.png
+│   │   │   └── status.png
+│   │   ├── gepot/
+│   │   │   ├── GEPOT-4.webp
+│   │   │   └── set-test-page.png
+│   │   ├── logo/
+│   │   │   ├── logo-02.ico
+│   │   │   └── logo-02.png
+│   │   ├── eol-icon.png
+│   │   └── stdtest/
+│   │       ├── Basic.png
+│   │       └── Inter.png
+│   ├── index/
+│   │   ├── Comprehensive_Listening.jpg
+│   │   ├── Easy_English.jpg
+│   │   ├── English_From_News.jpg
+│   │   ├── EOL19Year.png
+│   │   ├── Everyday_English.jpg
+│   │   ├── icon_new.gif
+│   │   ├── Impressive_Quotes.jpg
+│   │   ├── logo-eol.png
+│   │   ├── One_day_One_sentence.jpg
+│   │   ├── Proverbs_Slang_Idioms.jpg
+│   │   ├── Songs_for_Soul.jpg
+│   │   ├── TEOC11.webp
+│   │   └── Trendy_Movies.jpg
+│   ├── mainpage/
+│   │   └── button/
+│   │       └── enter eol.png
+│   ├── register/
+│   │   └── RegisterGEPOT.webp
+│   ├── logo social/
+│   │   ├── facebook.png
+│   │   ├── instagram.png
+│   │   ├── line_at.png
+│   │   ├── linelogo.png
+│   │   ├── twitter.png
+│   │   └── youtube.png
+│   └── shop/
+│       ├── order.jpg
+│       ├── policy-change-product.jpg
+│       ├── warranty.jpg
+│       └── products/
+│           ├── 15days-card.jpg
+│           ├── 1year-card.jpg
+│           ├── 30days-card.jpg
+│           ├── 365-card.jpg
+│           ├── 3650-card.jpg
+│           ├── 7days-card.jpg
+│           ├── 90days-card.jpg
+│           ├── EOL-Member-Club-Card.png
+│           ├── icon-card.png
+│           ├── icon-money.png
+│           ├── icon-refill.png
+│           ├── Member Club1.png
+│           └── Memer Club2.png
+├── js/
+│   ├── ckeditor/
+│   └── scroller/
+├── inc/
+│   ├── footer.php ✅
+│   ├── header.php ✅
+│   ├── info_user.php ✅
+│   ├── login.php ✅
+│   ├── logout.php ✅
+│   ├── updatetimeout.php ✅
+│   └── user_info.php ✅
+├── New EOL/
+│   ├── eol_system/
+│   │   └── 3keys-success.jpg
+│   └── image/
+│       └── English Clinic for Thais.png
+├── register/
+│   ├── register_account.php ✅
+│   └── send_email.php ✅
+├── shop/
+│   ├── payment.php ✅
+│   ├── policy-change-product.php ✅
+│   ├── product_1year.php ✅
+│   ├── product_corporate.php ✅
+│   ├── product_eol_member_club.php ✅
+│   ├── product_eol_platform.php ✅
+│   ├── product_intelligence.php ✅
+│   ├── product_personal.php ✅
+│   └── warranty.php ✅
+├── EOL/
+│   ├── addExamlist.php ✅
+│   ├── edit_masterAcc.php ✅
+│   ├── edit_subAcc.php ✅
+│   ├── eoloption.php ✅
+│   ├── eoltest.php ✅
+│   ├── general.php ✅
+│   ├── register_general.php ✅
+│   └── updateExam.php ✅
+├── 1yearcourse.php ✅
+├── b827f4b6-e92a-4ec6-893a-5c01f20f9598.jpg
+├── cache-kit.php ✅
+├── certificate.php ✅
+└── index.php ✅
+
+```
+
+## 📊 สรุป
+
+(ดูจาก Tree Structure และ Git Log)

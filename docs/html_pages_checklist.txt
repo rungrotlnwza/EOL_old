@@ -1,0 +1,107 @@
+# EOL Website HTML Pages Checklist
+# ใช้สำหรับติดตามการแก้ไขหน้า HTML ทั้งหมด
+# ✅ = แก้ไขแล้ว, ⏳ = กำลังแก้ไข, ❌ = ยังไม่ได้แก้ไข
+
+## 📋 สถิติรวม
+- รวมทั้งหมด: 61 ไฟล์ HTML
+- แก้ไขแล้ว: 61 ไฟล์
+- กำลังแก้ไข: 0 ไฟล์
+- ยังไม่ได้แก้ไข: 0 ไฟล์
+
+## 🏠 หน้าแรก (Root Level)
+✅ index.html - หน้าแรกของเว็บไซต์ (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 🔐 Authentication (auth/)
+✅ auth/login.html - หน้าเข้าสู่ระบบ (แปลง Card-based เป็น Row-Column แล้ว)
+✅ auth/register.html - หน้าสมัครสมาชิก (ใช้ Row-Column layout อยู่แล้ว)
+
+## 🎓 EOL System (eol-system/)
+✅ eol-system/english-rooms.html - หน้าห้องเรียนภาษาอังกฤษ (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/eol-platform.html - หน้า EOL Platform (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/eol-personal.html - หน้า EOL Personal (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/eol-member-club.html - หน้า EOL Member Club (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/eol-intelligence.html - หน้า EOL Intelligence (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/eol-corporate.html - หน้า EOL Corporate (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/eol-oneyear.html - หน้า EOL 1 Year Course (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 🏫 English Rooms (eol-system/english-rooms/)
+✅ eol-system/english-rooms/listening-room.html - ห้องเรียนการฟัง (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/english-rooms/grammar-room.html - ห้องเรียนไวยากรณ์ (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/english-rooms/business-english-room.html - ห้องเรียนภาษาอังกฤษธุรกิจ (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/english-rooms/ielts-room.html - ห้องเรียน IELTS (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/english-rooms/reading-room.html - ห้องเรียนการอ่าน (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/english-rooms/speaking-room.html - ห้องเรียนการพูด (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/english-rooms/toeic-room.html - ห้องเรียน TOEIC (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/english-rooms/writing-room.html - ห้องเรียนการเขียน (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-system/english-rooms/vocabulary-room.html - ห้องเรียนคำศัพท์ (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 🛒 Products (products/)
+✅ products/products.html - หน้าสินค้าและบริการ (แปลง Card-based เป็น Row-Column แล้ว)
+✅ products/product-eol-member-club.html - หน้า EOL Member Club (แปลง Card-based เป็น Row-Column แล้ว)
+✅ products/product-eol-personal.html - หน้า EOL Personal (แปลง Card-based เป็น Row-Column แล้ว)
+✅ products/product-eol-oneyear.html - หน้า EOL 1 Year Course (แปลง Card-based เป็น Row-Column แล้ว)
+✅ products/product-eol-intelligence.html - หน้า EOL Intelligence (แปลง Card-based เป็น Row-Column แล้ว)
+✅ products/product-eol-corporate.html - หน้า EOL Corporate (แปลง Card-based เป็น Row-Column แล้ว)
+✅ products/how-to-pay.html - หน้าการชำระเงิน (แปลง Card-based เป็น Row-Column แล้ว)
+✅ products/policy-change-product.html - หน้านโยบายการเปลี่ยนสินค้า (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 📰 News (news/)
+✅ news/eol-contest.html - หน้า EOL Contest (แปลง Card-based เป็น Row-Column แล้ว)
+✅ news/20th-anniversary.html - หน้า 20th Anniversary (แปลง Card-based เป็น Row-Column แล้ว)
+✅ news/teoc11-timeline.html - หน้า TEOC11 Timeline (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 📚 EOL Columns (eol-columns/)
+✅ eol-columns.html - หน้า EOL Columns หลัก (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/one-day-one-sentence.html - One day One sentence (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/english-from-news.html - English from News (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/easy-english.html - Easy English (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/comprehensive-listening.html - Comprehensive Listening (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/grammar-writing.html - Grammar & Writing (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/communicative-english.html - Communicative English (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/pronunciation-phonetic.html - Pronunciation & Phonetic (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/song-of-souls.html - Song of Souls (แปลง Card-based เป็น Row-Column แล้ว)
+✅ eol-columns/movie-world.html - Movie World (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 🎯 Standard Test (standard-test/)
+✅ standard-test/gepot.html - หน้า GEPOT Testing (แปลง Card-based เป็น Row-Column แล้ว)
+✅ standard-test/admission.html - หน้า Admission (แปลง Card-based เป็น Row-Column แล้ว)
+✅ standard-test/cu-tep.html - หน้า CU-TEP (แปลง Card-based เป็น Row-Column แล้ว)
+✅ standard-test/cefr.html - หน้า CEFR (แปลง Card-based เป็น Row-Column แล้ว)
+✅ standard-test/toefl.html - หน้า TOEFL (แปลง Card-based เป็น Row-Column แล้ว)
+✅ standard-test/toeic.html - หน้า TOEIC (แปลง Card-based เป็น Row-Column แล้ว)
+✅ standard-test/ielts.html - หน้า IELTS (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 📞 Contact (contact/)
+✅ contact/contact.html - หน้าติดต่อเรา (แปลง Card-based เป็น Row-Column แล้ว)
+✅ contact/work.html - หน้าร่วมงานกับเรา (แปลง Card-based เป็น Row-Column แล้ว)
+
+## ℹ️ About (about/)
+✅ about/about.html - หน้าเกี่ยวกับ EOL (แปลง Card-based เป็น Row-Column แล้ว)
+✅ about/whatiseol.html - หน้า What is EOL (แปลง Card-based เป็น Row-Column แล้ว)
+✅ about/eol-history.html - หน้ากว่าจะเป็น EOL (แปลง Card-based เป็น Row-Column แล้ว)
+✅ about/security.html - หน้าความปลอดภัยของเว็บไซต์ (แปลง Card-based เป็น Row-Column แล้ว)
+✅ about/privacy.html - หน้านโยบายความเป็นส่วนตัว (แปลง Card-based เป็น Row-Column แล้ว)
+✅ about/complaint.html - หน้าข้อร้องเรียนและการระงับข้อพิพาท (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 🧩 Components (components/)
+✅ components/navbar.html - Navigation bar component (ใช้ Row-Column layout อยู่แล้ว)
+✅ components/header.html - Header component (ใช้ Row-Column layout อยู่แล้ว)
+✅ components/footer.html - Footer component (ใช้ Row-Column layout อยู่แล้ว)
+
+## 🎨 Assets (assets/)
+✅ assets/components/navbar.html - Alternative navbar component (ใช้ Row-Column layout อยู่แล้ว)
+
+## 📄 Miscellaneous (Root Level)
+✅ carousel-details.html - หน้ารายละเอียด Carousel (แปลง Card-based เป็น Row-Column แล้ว)
+✅ certificate.html - หน้าใบรับรอง (แปลง Card-based เป็น Row-Column แล้ว)
+
+## 📝 หมายเหตุ
+- ไฟล์นี้จะถูกอัปเดตทุกครั้งที่มีการแก้ไขหน้า HTML
+- ใช้สำหรับติดตามความคืบหน้าในการแปลง Card-based เป็น Row-Column layout
+- สถิติจะถูกคำนวณใหม่ทุกครั้งที่อัปเดต
+
+## 🔄 การใช้งาน
+1. เมื่อเริ่มแก้ไขหน้าใด ให้เปลี่ยน ❌ เป็น ⏳
+2. เมื่อแก้ไขเสร็จแล้ว ให้เปลี่ยน ⏳ เป็น ✅
+3. อัปเดตสถิติรวมด้านบน
+4. บันทึกไฟล์นี้ทุกครั้งที่มีการเปลี่ยนแปลง

@@ -1,0 +1,283 @@
+# EOL System Frontend Development Checklist
+# ใช้สำหรับติดตามการพัฒนา Frontend (UI/UX)
+# ✅ = พัฒนาแล้ว, ⏳ = กำลังพัฒนา, ❌ = ยังไม่ได้พัฒนา
+
+## 📋 สถิติรวม
+- รวมทั้งหมด: 110 ฟีเจอร์หลัก
+- พัฒนาแล้ว: 69 ฟีเจอร์ (Public Website + Private User Management + Admin Dashboard)
+- กำลังพัฒนา: 2 ฟีเจอร์ (Login/Register)
+- ยังไม่ได้พัฒนา: 39 ฟีเจอร์ (Views/EST/Teacher Management)
+
+## 📝 Notes
+- ใช้ Bootstrap 5 เต็มรูปแบบ
+- ไม่มี Custom CSS
+- รองรับ Mobile Responsive
+- ใช้ Font Awesome icons
+- Dark theme with warning accent
+- ใช้ Row Col Layout สำหรับ Mobile-friendly design
+- Private User Management ใช้ Bootstrap Grid System (col-12 col-md-6 col-lg-4)
+- Static Mockups สำหรับการแสดงผล (ไม่มี JavaScript)
+
+## 📁 New Tree Structure Plan
+```
+D:\MVC\
+├── public/                    # 🌐 Public Website (โฆษณา/ประชาสัมพันธ์)
+│   ├── auth/                  # ระบบเข้าสู่ระบบ - หน้า login/register สำหรับเข้าสู่ระบบ
+│   │   ├── login.html ✅      # หน้าเข้าสู่ระบบ พร้อม hide/show password
+│   │   ├── register.html ✅   # หน้าสมัครสมาชิก พร้อม hide/show password
+│   ├── about/                 # เกี่ยวกับเรา - ข้อมูลบริษัท ประวัติ นโยบาย
+│   │   ├── about.html ✅      # หน้าเกี่ยวกับ EOL ข้อมูลทีมงาน
+│   │   ├── whatiseol.html ✅  # หน้า EOL คืออะไร อธิบายระบบ
+│   │   ├── security.html ✅   # หน้านโยบายความปลอดภัย
+│   │   ├── privacy.html ✅    # หน้านโยบายความเป็นส่วนตัว
+│   │   ├── eol-history.html ✅ # หน้าประวัติ EOL 20 ปี
+│   │   ├── complaint.html ✅  # หน้าช่องทางการร้องเรียน
+│   ├── contact/               # ติดต่อเรา - ข้อมูลการติดต่อ
+│   │   ├── contact.html ✅    # หน้าติดต่อเรา ฟอร์มติดต่อ
+│   │   ├── work.html ✅       # หน้าร่วมงานกับเรา รับสมัครงาน
+│   ├── news/                  # ข่าวสาร - กิจกรรมและข่าวสาร
+│   │   ├── 20th-anniversary.html ✅ # หน้า 20 ปี EOL
+│   │   ├── eol-contest.html ✅ # หน้าการแข่งขัน EOL
+│   │   ├── teoc11-timeline.html ✅ # หน้าไทม์ไลน์ TEOC11
+│   ├── products/              # หน้าโฆษณาผลิตภัณฑ์ - แสดงผลิตภัณฑ์ต่างๆ
+│   │   ├── products.html ✅   # หน้าผลิตภัณฑ์ทั้งหมด
+│   │   ├── product-eol-personal.html ✅ # หน้าโฆษณา EOL Personal
+│   │   ├── product-eol-member-club.html ✅ # หน้าโฆษณา EOL Member Club
+│   │   ├── product-eol-oneyear.html ✅ # หน้าโฆษณา EOL 1 Year Course
+│   │   ├── product-eol-intelligence.html ✅ # หน้าโฆษณา EOL Intelligence
+│   │   ├── product-eol-corporate.html ✅ # หน้าโฆษณา EOL Corporate
+│   │   ├── how-to-pay.html ✅ # หน้าการชำระเงิน
+│   │   ├── policy-change-product.html ✅ # หน้านโยบายการเปลี่ยนผลิตภัณฑ์
+│   ├── services/              # หน้าโฆษณาบริการ - แสดงบริการต่างๆ
+│   │   ├── eol-system/        # ระบบ EOL - แสดงระบบต่างๆ
+│   │   │   ├── eol-platform.html ✅ # หน้าโฆษณา EOL Platform
+│   │   │   ├── eol-personal.html ✅ # หน้าโฆษณา EOL Personal
+│   │   │   ├── eol-member-club.html ✅ # หน้าโฆษณา EOL Member Club
+│   │   │   ├── eol-intelligence.html ✅ # หน้าโฆษณา EOL Intelligence
+│   │   │   ├── eol-corporate.html ✅ # หน้าโฆษณา EOL Corporate
+│   │   │   ├── eol-oneyear.html ✅ # หน้าโฆษณา EOL 1 Year Course
+│   │   ├── english-rooms/     # ห้องเรียนภาษาอังกฤษ - แสดงห้องเรียนต่างๆ
+│   │   │   ├── english-rooms.html ✅ # หน้าห้องเรียนภาษาอังกฤษทั้งหมด
+│   │   │   ├── grammar-room.html ✅ # หน้าโฆษณาห้องเรียนไวยากรณ์
+│   │   │   ├── vocabulary-room.html ✅ # หน้าโฆษณาห้องเรียนคำศัพท์
+│   │   │   ├── speaking-room.html ✅ # หน้าโฆษณาห้องเรียนการพูด
+│   │   │   ├── listening-room.html ✅ # หน้าโฆษณาห้องเรียนการฟัง
+│   │   │   ├── reading-room.html ✅ # หน้าโฆษณาห้องเรียนการอ่าน
+│   │   │   ├── writing-room.html ✅ # หน้าโฆษณาห้องเรียนการเขียน
+│   │   │   ├── business-english-room.html ✅ # หน้าโฆษณาห้องเรียนภาษาอังกฤษธุรกิจ
+│   │   │   ├── ielts-room.html ✅ # หน้าโฆษณาห้องเรียน IELTS
+│   │   │   ├── toeic-room.html ✅ # หน้าโฆษณาห้องเรียน TOEIC
+│   │   ├── eol-columns/       # EOL Columns - แสดงคอลัมน์ต่างๆ
+│   │   │   ├── communicative-english.html ✅ # หน้าโฆษณาภาษาอังกฤษเพื่อการสื่อสาร
+│   │   │   ├── comprehensive-listening.html ✅ # หน้าโฆษณาการฟังแบบครบถ้วน
+│   │   │   ├── easy-english.html ✅ # หน้าโฆษณาภาษาอังกฤษง่ายๆ
+│   │   │   ├── english-from-news.html ✅ # หน้าโฆษณาภาษาอังกฤษจากข่าว
+│   │   │   ├── grammar-writing.html ✅ # หน้าโฆษณาไวยากรณ์และการเขียน
+│   │   │   ├── movie-world.html ✅ # หน้าโฆษณาโลกภาพยนตร์
+│   │   │   ├── one-day-one-sentence.html ✅ # หน้าโฆษณาวันละประโยค
+│   │   │   ├── pronunciation-phonetic.html ✅ # หน้าโฆษณาการออกเสียงและสัทศาสตร์
+│   │   │   ├── song-of-souls.html ✅ # หน้าโฆษณาเพลงแห่งจิตวิญญาณ
+│   │   ├── standard-test/     # การทดสอบมาตรฐาน - แสดงการทดสอบต่างๆ
+│   │   │   ├── admission.html ✅ # หน้าโฆษณาการสอบเข้า
+│   │   │   ├── cefr.html ✅   # หน้าโฆษณามาตรฐาน CEFR
+│   │   │   ├── cu-tep.html ✅ # หน้าโฆษณาการสอบ CU-TEP
+│   │   │   ├── gepot.html ✅  # หน้าโฆษณาการสอบ GEPOT
+│   │   │   ├── ielts.html ✅  # หน้าโฆษณาการสอบ IELTS
+│   │   │   ├── toefl.html ✅  # หน้าโฆษณาการสอบ TOEFL
+│   │   │   ├── toeic.html ✅  # หน้าโฆษณาการสอบ TOEIC
+│   ├── components/            # Components - ส่วนประกอบที่ใช้ร่วมกัน
+│   │   ├── navbar.html ✅     # แถบนำทางหลัก
+│   │   ├── footer.html ✅     # ส่วนท้ายเว็บไซต์
+│   ├── index.html ✅          # หน้าแรก - หน้าแรกของเว็บไซต์
+│   ├── carousel-details.html ✅ # หน้ารายละเอียดแบนเนอร์
+│   ├── certificate.html ✅    # หน้าใบประกาศนียบัตร
+│   ├── eol-columns.html ✅    # หน้า EOL Columns หลัก
+│
+├── views/                     # 💻 Application Views (โปรแกรมจริง)
+│   ├── dashboard/             # แดชบอร์ดหลัก - หน้าหลักหลัง login
+│   │   ├── index.html ❌      # หน้าแดชบอร์ด แสดงข้อมูลสรุป
+│   ├── tests/                 # ระบบทดสอบ - หน้าทดสอบจริง
+│   │   ├── academic-test.html ❌ # หน้าการทดสอบวิชาการ
+│   │   ├── standard-test.html ❌ # หน้าการทดสอบมาตรฐาน
+│   │   ├── contest.html ❌    # หน้าการแข่งขัน
+│   │   ├── test-results.html ❌ # หน้าผลการทดสอบ
+│   │   ├── classroom-exam.html ❌ # หน้าข้อสอบในห้องเรียน - นักเรียนทำข้อสอบในห้องเรียน
+│   │   ├── exam-history.html ❌ # หน้าประวัติการสอบ - นักเรียนดูประวัติการสอบ
+│   │   └── est-test/          # ระบบ EST Test - การทดสอบมาตรฐานภาษาอังกฤษ
+│   │       ├── est-eligibility.html ❌ # หน้าเงื่อนไขการเข้าถึง EST Test
+│   │       ├── est-pre-test.html ❌ # หน้าตรวจสอบเงื่อนไขก่อนทดสอบ EST
+│   │       ├── est-test.html ❌ # หน้าทดสอบ EST จริง
+│   │       ├── est-results.html ❌ # หน้าผลการทดสอบ EST
+│   │       └── est-history.html ❌ # หน้าประวัติการทดสอบ EST
+│   ├── learning/              # ระบบเรียน - หน้าเรียนจริง
+│   │   ├── courses.html ❌    # หน้าบทเรียนทั้งหมด
+│   │   ├── lessons.html ❌    # หน้าบทเรียนแต่ละบท
+│   │   ├── progress.html ❌   # หน้าความก้าวหน้า
+│   │   ├── achievements.html ❌ # หน้าผลงาน/เกียรติบัตร
+│   │   ├── classroom.html ❌    # หน้าห้องเรียน - นักเรียนเข้าห้องเรียน
+│   │   ├── my-classrooms.html ❌ # หน้าห้องเรียนของฉัน - นักเรียนดูห้องเรียนที่ลงทะเบียน
+│   ├── reports/               # ระบบรายงาน - หน้ารายงานส่วนตัว
+│   │   ├── my-reports.html ❌ # หน้ารายงานของฉัน
+│   │   ├── test-history.html ❌ # หน้าประวัติการทดสอบ
+│   │   ├── progress-report.html ❌ # หน้ารายงานความก้าวหน้า
+│   ├── profile/               # จัดการโปรไฟล์ - หน้าข้อมูลส่วนตัว
+│   │   ├── profile.html ❌    # หน้าข้อมูลส่วนตัว
+│   │   ├── edit-profile.html ❌ # หน้าแก้ไขข้อมูลส่วนตัว
+│   │   ├── change-password.html ❌ # หน้าเปลี่ยนรหัสผ่าน
+│   ├── settings/              # ตั้งค่า - หน้าตั้งค่าระบบ
+│       ├── notification-settings.html ❌ # หน้าตั้งค่าการแจ้งเตือน
+│
+├── private/                   # 🔐 Admin/Management (ต้อง login)
+│   ├── user/                  # จัดการข้อมูลส่วนตัว - หน้าจัดการข้อมูลส่วนตัวของ User
+│   │   ├── profile.html ✅    # หน้าข้อมูลส่วนตัวของ User (รวมระดับภาษา, ผลการทดสอบ, ความก้าวหน้า, ใบประกาศ, EST Test) - ใช้ Row Col Layout
+│   │   ├── edit-profile.html ✅ # หน้าแก้ไขข้อมูลส่วนตัว - ใช้ Row Col Layout
+│   │   ├── change-password.html ✅ # หน้าเปลี่ยนรหัสผ่าน - ใช้ Row Col Layout
+│   │   ├── privacy-settings.html ✅ # หน้าตั้งค่าความเป็นส่วนตัว - ใช้ Row Col Layout
+│   │   ├── notification-settings.html ✅ # หน้าตั้งค่าการแจ้งเตือนส่วนตัว - ใช้ Row Col Layout
+│   │   ├── notification-detail.html ✅ # หน้ารายละเอียดการแจ้งเตือน - Static Mockup
+│   ├── admin/                 # จัดการระบบ - หน้าจัดการระบบสำหรับ Admin
+│   │   ├── index.html ✅      # หน้า Admin Dashboard หลัก - แสดงสถิติและข้อมูลสรุป
+│   │   ├── users.html ✅      # หน้าจัดการผู้ใช้ - แสดงรายชื่อผู้ใช้, ค้นหา, กรอง, ดูรายละเอียด
+│   │   ├── analytics.html ✅  # หน้าวิเคราะห์ข้อมูล - แสดงกราฟและสถิติการใช้งาน
+│   │   ├── notifications.html ✅ # หน้าจัดการการแจ้งเตือน - แจ้งเตือนออกและข้อความเข้า
+│   │   ├── settings.html ✅   # หน้าตั้งค่าระบบ - ตั้งค่าทั่วไปของระบบ
+│   │   ├── lessons-management.html ❌ # หน้าจัดการเนื้อหาบทเรียน - Admin สร้าง/แก้ไขบทเรียน
+│   │   ├── exam-management.html ❌ # หน้าจัดการข้อสอบ - Admin จัดการข้อสอบทั้งหมด
+│   │   ├── classroom-management.html ❌ # หน้าจัดการห้องเรียน - Admin จัดการห้องเรียนทั้งหมด
+│   ├── teacher/               # จัดการนักเรียน - หน้าจัดการนักเรียนสำหรับครู
+│   │   ├── my-students.html ❌ # หน้าจัดการนักเรียนของตัวเอง - ครูดูรายชื่อนักเรียน
+│   │   ├── assign-lessons.html ❌ # หน้ามอบหมายบทเรียนให้นักเรียน - ครูมอบหมายงาน
+│   │   ├── student-progress.html ❌ # หน้าติดตามความก้าวหน้านักเรียน - ครูดูความก้าวหน้า
+│   │   ├── create-assignment.html ❌ # หน้าสร้างงานให้นักเรียน - ครูสร้างงานใหม่
+│   │   ├── grade-assignments.html ❌ # หน้าการให้คะแนนงาน - ครูให้คะแนนงานนักเรียน
+│   │   ├── my-classrooms.html ❌ # หน้าจัดการห้องเรียนของฉัน - ครูจัดการห้องเรียน
+│   │   ├── create-exam.html ❌ # หน้าสร้างข้อสอบ - ครูสร้างข้อสอบใหม่
+│   │   ├── exam-results.html ❌ # หน้าผลการสอบ - ครูดูผลการสอบของนักเรียน
+│   ├── analytics/             # วิเคราะห์ข้อมูล - หน้าวิเคราะห์ข้อมูล
+│   │   ├── usage-statistics.html ❌ # หน้าสถิติการใช้งาน
+│   │   ├── performance-report.html ❌ # หน้ารายงานประสิทธิภาพ
+│   │   ├── user-analytics.html ❌ # หน้าวิเคราะห์ผู้ใช้
+│   ├── corporate/             # จัดการองค์กร - หน้าจัดการองค์กร
+│   │   ├── corporate-dashboard.html ❌ # หน้าแดชบอร์ดองค์กร
+│   │   ├── sub-accounts.html ❌ # หน้าจัดการบัญชีย่อย
+│   │   ├── bulk-reports.html ❌ # หน้ารายงานแบบรวม
+│
+├── routes/                    # 🛣️ Routing System - ระบบ routing
+    ├── API/                   # API Routes - ระบบ API
+    │   ├── api.routes.js ✅    # Routes สำหรับ API - จัดการ routes สำหรับ API
+    ├── frontend/              # Frontend Routes - ระบบ Frontend
+    │   ├── private.routes.js ⏳ # Routes สำหรับ private/ - จัดการ routes สำหรับ Admin
+    │   ├── public.routes.js ✅ # Routes สำหรับ public/ - จัดการ routes สำหรับ Public Website
+    ├── routes.js ✅           # Main Routes - ไฟล์ routes หลัก
+```
+
+## 🎯 Priority Development Order
+1. Public Website (เสร็จแล้ว 59 หน้า) ✅
+2. Private User Management (เสร็จแล้ว 6 หน้า - ใช้ Row Col Layout) ✅
+3. Private Admin Dashboard (เสร็จแล้ว 5 หน้า - ใช้ Bootstrap + Template) ✅
+4. Private Teacher Management (สร้างระบบจัดการนักเรียนสำหรับครู - 5 หน้า) ❌
+5. Views Structure (สร้างโปรแกรมจริงใน views/ - 22 หน้า) ❌
+6. Private Analytics (สร้างระบบวิเคราะห์ข้อมูลใน private/analytics/ - 3 หน้า) ❌
+7. Private Corporate (สร้างระบบจัดการองค์กรใน private/corporate/ - 3 หน้า) ❌
+8. Routing System (อัปเดต routes/ - 3 ไฟล์) ⏳
+9. Authentication & User Management (กำลังพัฒนา 2 หน้า) ⏳
+10. Application Dashboard (ยังไม่ได้พัฒนา) ❌
+11. Testing System (ยังไม่ได้พัฒนา) ❌
+12. EST Test System (ยังไม่ได้พัฒนา - 5 หน้า) ❌
+13. Learning System (ยังไม่ได้พัฒนา) ❌
+14. Reports & Statistics (ยังไม่ได้พัฒนา) ❌
+15. Admin Features (ยังไม่ได้พัฒนา) ❌
+16. Special Features (ยังไม่ได้พัฒนา) ❌
+17. System Management (ยังไม่ได้พัฒนา) ❌
+18. User Interface (ยังไม่ได้พัฒนา) ❌
+19. Technical Features (ยังไม่ได้พัฒนา) ❌
+
+## 🎯 EST Test System Features
+### เงื่อนไขการเข้าถึง EST Test:
+- ✅ ต้องผ่านทักษะครบ 18 หัวข้อ (6 ทักษะ × 3 ระดับ CEFR)
+- ✅ ต้องผ่านคะแนน 50% ขึ้นไปในระดับ Intermediate (Level 2) ขึ้นไป
+- ✅ ต้องรอ 30 วันหลังจากการทดสอบ EST ครั้งล่าสุด
+- ✅ ต้องมีสิทธิ์เข้าถึง (สำหรับ admin หรือ user พิเศษ)
+
+### ฟีเจอร์ EST Test:
+- ❌ **est-eligibility.html** - หน้าเงื่อนไขการเข้าถึง EST Test
+- ❌ **est-pre-test.html** - หน้าตรวจสอบเงื่อนไขก่อนทดสอบ EST
+- ❌ **est-test.html** - หน้าทดสอบ EST จริง (4 ทักษะ, จำกัดเวลา, ระบบเสียง)
+- ❌ **est-results.html** - หน้าผลการทดสอบ EST (วิเคราะห์และแสดงผล)
+- ❌ **est-history.html** - หน้าประวัติการทดสอบ EST
+
+### ระบบการทดสอบ EST:
+- 🎲 สุ่มข้อสอบจากฐานข้อมูล
+- ⏱️ จำกัดเวลาในการทำข้อสอบ
+- 🔊 ระบบเสียง (ฟังได้ครั้งเดียว)
+- 📝 4 ทักษะหลัก: Listening, Reading, Grammar, Writing
+- 🎯 ระบบคะแนน: คะแนนถูก-ผิด-ไม่ตอบ
+- 📊 บันทึกผลการทดสอบและแสดงรายงาน
+- 🛡️ ระบบป้องกันการโกง
+
+## 📈 Recent Updates (ล่าสุด)
+### ✅ Private Admin Dashboard - Complete Implementation
+**วันที่อัพเดท:** ปัจจุบัน
+**การเปลี่ยนแปลง:**
+- ✅ **index.html** - Admin Dashboard หลัก
+  - สถิติรวม: 4 cards (ผู้ใช้, ทักษะ, การทดสอบ, แจ้งเตือน)
+  - กราฟ Chart.js: User Growth, Skill Progress, Test Results
+  - Recent Activity: กิจกรรมล่าสุด
+  - Quick Stats: สถิติด่วน
+- ✅ **users.html** - จัดการผู้ใช้
+  - แสดงรายชื่อผู้ใช้: Row/Col Layout (Mobile-friendly)
+  - ค้นหาและกรอง: ชื่อ, บทบาท, สถานะ
+  - รายละเอียดผู้ใช้: ทักษะ, การทดสอบ EST
+  - Template System: userCardTemplate, skillItemTemplate, testItemTemplate
+- ✅ **analytics.html** - วิเคราะห์ข้อมูล
+  - กราฟสถิติ: Chart.js integration
+  - สรุปข้อมูล: Quick Stats, Recent Activity
+  - Export/Refresh: Dropdown actions
+- ✅ **notifications.html** - จัดการการแจ้งเตือน
+  - แจ้งเตือนออก: สร้าง, แก้ไข, ส่ง, ลบ
+  - ข้อความเข้า: ตอบกลับ, ส่งต่อ, แก้ไข
+  - Template System: Modal templates
+  - ภาษาไทย: UI และข้อมูล
+- ✅ **settings.html** - ตั้งค่าระบบ
+  - การตั้งค่าทั่วไป
+  - การจัดการระบบ
+
+**ฟีเจอร์หลัก:**
+- 🎨 **Bootstrap 5 Only** - ไม่มี Custom CSS
+- 📱 **Mobile Responsive** - Row/Col Layout
+- 🧩 **Template System** - ใช้ <template> tags
+- 📊 **Chart.js Integration** - กราฟและสถิติ
+- 🔄 **Dynamic Content** - JavaScript loading
+- 🌐 **Thai Language** - UI และข้อมูลภาษาไทย
+- 📧 **Notification System** - ระบบแจ้งเตือนครบถ้วน
+
+### ✅ Private User Management - Row Col Layout Implementation
+**วันที่อัพเดท:** ก่อนหน้า
+**การเปลี่ยนแปลง:**
+- ✅ **profile.html** - เปลี่ยนจาก Table/Card เป็น Row Col Layout
+  - ข้อมูลส่วนตัว: 8 ฟิลด์ (col-12 col-md-6 col-lg-4)
+  - ข้อมูลบัญชี: 5 ฟิลด์ (col-12 col-md-6 col-lg-4)
+  - Language Levels: 9 ทักษะ × 6 ระดับ CEFR (col-12 col-md-6 col-lg-4)
+  - EST Test: Eligibility, History, Information (Mobile-friendly)
+  - Certificate: Canvas-based download system
+- ✅ **edit-profile.html** - เปลี่ยนฟอร์มเป็น Row Col Layout
+  - ข้อมูลส่วนตัว: 6 ฟิลด์ (col-12 col-md-6 col-lg-4)
+  - ข้อมูลการติดต่อ: 2 ฟิลด์ (col-12 col-md-6 col-lg-6)
+  - ข้อมูลการศึกษา: 2 ฟิลด์ (col-12 col-md-6 col-lg-6)
+- ✅ **change-password.html** - เปลี่ยน Password Requirements เป็น Row Col Layout
+  - 4 ข้อกำหนด (col-12 col-md-6)
+- ✅ **privacy-settings.html** - เปลี่ยนข้อมูลเป็น Row Col Layout
+  - GDPR Information: 2 สิทธิ์ (col-12 col-md-6)
+  - Data Usage Overview: 4 ประเภท (col-12 col-md-6 col-lg-3)
+- ✅ **notification-settings.html** - เปลี่ยนการแจ้งเตือนเป็น Row Col Layout
+  - 5 การแจ้งเตือน (col-12 col-md-6 col-lg-4)
+  - Color-coded borders ตามประเภท
+- ✅ **notification-detail.html** - Static Mockup (ไม่มี JavaScript)
+
+**ข้อดีของ Row Col Layout:**
+- 📱 **Mobile-friendly** - ใช้งานสะดวกบนมือถือ
+- 🎨 **Consistent Design** - รูปแบบเดียวกันทุกหน้า
+- 🔧 **Bootstrap Standard** - ใช้ระบบ grid มาตรฐาน
+- ⚡ **Better Performance** - ไม่มี Custom CSS
+- 🎯 **Touch-friendly** - เหมาะสำหรับการสัมผัส
+- 📐 **Equal Height** - h-100 ทำให้ทุก card สูงเท่ากัน
